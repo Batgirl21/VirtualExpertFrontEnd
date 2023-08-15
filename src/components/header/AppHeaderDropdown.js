@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import {
   CAvatar,
@@ -23,8 +24,20 @@ import {
 import CIcon from '@coreui/icons-react'
 
 import avatar8 from './../../assets/images/avatars/8.jpg'
+import { useDispatch } from 'react-redux'
+import { AuthToken } from 'src/AxiosConfig'
+import { logout } from 'src/slice/loginSlice'
 
 const AppHeaderDropdown = () => {
+  const dispatch = useDispatch();
+  const axiosInstance = AuthToken();
+
+  const Logout = () => {
+    axiosInstance.patch("/user/logout").then(() => {
+      dispatch(logout())
+    })
+  }
+
   return (
     <CDropdown variant="nav-item">
       <CDropdownToggle placement="bottom-end" className="py-0" caret={false}>
@@ -84,7 +97,7 @@ const AppHeaderDropdown = () => {
           </CBadge>
         </CDropdownItem>
         <CDropdownDivider />
-        <CDropdownItem href="#">
+        <CDropdownItem onClick={Logout}>
           <CIcon icon={cilLockLocked} className="me-2" />
           Lock Account
         </CDropdownItem>

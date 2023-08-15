@@ -17,10 +17,10 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { loginSuccess, userLoaded, userLoading } from 'src/slice/loginSlice'
+import { loginSuccess, expertLoaded, userLoading } from 'src/slice/loginSlice'
 import { Axios } from 'src/AxiosConfig'
 
-const Login = () => {
+const Expertlogin = () => {
   const [details, setDetails] = useState({
     userID: "",
     password: "",
@@ -33,18 +33,18 @@ const Login = () => {
   const onSubmit = async () => {
     console.log(details)
     await dispatch(userLoading())
-    await Axios.post("/user/login", details)
+    await Axios.post("/expert/login", details)
       .then(async (res) => {
         console.log(res)
         if (res.data.status = 200) {
           await dispatch(loginSuccess(res.data));
-          await Axios.get("/user/dashboard", {
+          await Axios.get("/expert/Expertdashboard", {
             headers: {
-              "User-Authorization": res.data.token,
+              "Expert-Authorization": res.data.token,
               "Content-Type": 'application/json'
             }
           }).then(async (resp) => {
-            dispatch(userLoaded(resp.data))
+            dispatch(expertLoaded(resp.data))
             navigate("/")
           })
         }
@@ -123,4 +123,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Expertlogin
