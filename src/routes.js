@@ -1,4 +1,7 @@
 import React from 'react'
+import UserHome from './views/userHome/UserHome'
+import VC from './VC'
+import VC2 from './VC2'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
@@ -53,6 +56,9 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
+  { path: '/userdashboard', name: 'Dashboard', element: UserHome },
+  { path: '/vc', name: 'VC', element: VC },
+  { path: '/vc2', name: 'VC', element: VC2 },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },
   { path: '/theme/colors', name: 'Colors', element: Colors },
   { path: '/theme/typography', name: 'Typography', element: Typography },

@@ -13,12 +13,13 @@ import SimpleBar from 'simplebar-react'
 import 'simplebar/dist/simplebar.min.css'
 
 // sidebar nav config
-import navigation from '../_nav'
+import { _nav, userNav, expertNav } from '../_nav'
 
 const AppSidebar = () => {
   const dispatch = useDispatch()
   const unfoldable = useSelector((state) => state.sidebarUnfoldable)
   const sidebarShow = useSelector((state) => state.sidebarShow)
+  const isExpert = useSelector((state) => state.login.isExpert)
 
   return (
     <CSidebar
@@ -35,7 +36,7 @@ const AppSidebar = () => {
       </CSidebarBrand>
       <CSidebarNav>
         <SimpleBar>
-          <AppSidebarNav items={navigation} />
+          <AppSidebarNav items={isExpert ? expertNav : userNav} />
         </SimpleBar>
       </CSidebarNav>
       <CSidebarToggler
