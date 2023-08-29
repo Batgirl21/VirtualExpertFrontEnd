@@ -115,7 +115,7 @@ const RoomPage = () => {
     <div>
       <h1>Room Page</h1>
       <h4>{remoteSocketId ? 'Connected' : 'No one in room'}</h4>
-      {myStream && <button onClick={sendStreams}>Send Stream</button>}
+      {myStream && <button onClick={sendStreams}>Answer call</button>}
       {remoteSocketId && <button onClick={handleCallUser}>CALL</button>}
       <div className="d-flex">
         {myStream && (
@@ -127,7 +127,7 @@ const RoomPage = () => {
         {remoteStream && (
           <div>
             <h1>{remoteEmail ? remoteEmail : 'Reshma'}</h1>
-            <ReactPlayer playing muted height="200px" width="400px" url={remoteStream} />
+            <ReactPlayer playing height="200px" width="400px" url={remoteStream} />
           </div>
         )}
       </div>
