@@ -2,6 +2,7 @@ import React from 'react'
 import UserHome from './views/userHome/UserHome'
 import VC from './VC'
 import VC2 from './VC2'
+import ExpertHome from './views/expertHome/ExpertHome'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
@@ -57,6 +58,7 @@ const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
   { path: '/userdashboard', name: 'Dashboard', element: UserHome },
+  { path: '/expertRoom', name: 'VC Room', element: ExpertHome },
   { path: '/vc', name: 'VC', element: VC },
   { path: '/vc2', name: 'VC', element: VC2 },
   { path: '/theme', name: 'Theme', element: Colors, exact: true },

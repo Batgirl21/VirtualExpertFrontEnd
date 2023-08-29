@@ -38,12 +38,18 @@ const expertNav = [
   {
     component: CNavItem,
     name: 'Dashboard',
-    to: '/expertdashboard',
+    to: '/dashboard',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
     badge: {
       color: 'info',
       text: 'NEW',
     },
+  },
+  {
+    component: CNavItem,
+    name: 'Vc Room',
+    to: '/expertRoom',
+    icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
   },
 ]
 const _nav = [
